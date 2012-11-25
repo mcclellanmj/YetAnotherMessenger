@@ -4,11 +4,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>YetAnotherMessenger</artifactId>
+		<artifactId>YetAnotherMessenger-WebApps</artifactId>
 		<groupId>after.hours</groupId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
-	
+
 	<groupId>after.hours</groupId>
 	<artifactId>Web-Ui</artifactId>
 	<packaging>war</packaging>
@@ -16,16 +16,13 @@
 	<name>Wicket Guice</name>
 
 	<dependencies>
-		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket</artifactId>
-			<version>${wicket.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-guice</artifactId>
-			<version>${wicket.version}</version>
 		</dependency>
 
 		<dependency>
@@ -46,33 +43,22 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>Web-Ui</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.glassfish.embedded</groupId>
 				<artifactId>maven-embedded-glassfish-plugin</artifactId>
 				<configuration>
-					<port>8888</port>
+					<port>8080</port>
 					<app>target/Web-Ui.war</app>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-	<properties>
-		<slf4j.version>1.5.11</slf4j.version>
-		<wicket.version>1.4.12</wicket.version>
-		<jetty.version>6.1.25</jetty.version>
-	</properties>
-
 </project>

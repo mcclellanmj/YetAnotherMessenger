@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>after.hours</groupId>
+    <artifactId>YetAnotherMessenger</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
   <groupId>after.hours</groupId>
   <artifactId>YetAnotherMessenger-WebApps</artifactId>
   <version>0.1-SNAPSHOT</version>
@@ -72,7 +78,7 @@
           <artifactId>maven-embedded-glassfish-plugin</artifactId>
           <version>3.1.2.2</version>
           <configuration>
-            <goalPrefix>server</goalPrefix>
+            <goalPrefix>embedded-glassfish</goalPrefix>
           </configuration>
         </plugin>
       </plugins>
