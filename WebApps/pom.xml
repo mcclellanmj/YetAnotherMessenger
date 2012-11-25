@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>after.hours</groupId>
+  <artifactId>YetAnotherMessenger-WebApps</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>YetAnotherMessenger-WebApps</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jersey-version>1.8</jersey-version>
+    <wicket.version>1.4.12</wicket.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>${jersey-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.jersey</groupId>
+        <artifactId>jersey-json</artifactId>
+        <version>${jersey-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.inject.extensions</groupId>
+        <artifactId>guice-servlet</artifactId>
+        <version>3.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.jersey.contribs</groupId>
+        <artifactId>jersey-guice</artifactId>
+        <version>1.15</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.glassfish.distributions</groupId>
+        <artifactId>web-all</artifactId>
+        <version>10.0-build-20080430</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.embedded</groupId>
+        <artifactId>gf-embedded-api</artifactId>
+        <version>1.0-alpha-4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket</artifactId>
+        <version>${wicket.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.wicket</groupId>
+        <artifactId>wicket-guice</artifactId>
+        <version>${wicket.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.glassfish.embedded</groupId>
+          <artifactId>maven-embedded-glassfish-plugin</artifactId>
+          <version>3.1.2.2</version>
+          <configuration>
+            <goalPrefix>server</goalPrefix>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <modules>
+    <module>Rest-Server</module>
+    <module>Web-Ui</module>
+  </modules>
+</project>
