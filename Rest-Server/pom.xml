@@ -40,19 +40,6 @@
       <groupId>com.sun.jersey.contribs</groupId>
       <artifactId>jersey-guice</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>org.glassfish.distributions</groupId>
-      <artifactId>web-all</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.glassfish.embedded</groupId>
-      <artifactId>gf-embedded-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
