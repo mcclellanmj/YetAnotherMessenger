@@ -18,7 +18,6 @@
 
   <properties>
     <jersey-version>1.8</jersey-version>
-    <wicket.version>1.4.12</wicket.version>
   </properties>
 
   <dependencyManagement>
@@ -55,17 +54,6 @@
         <artifactId>gf-embedded-api</artifactId>
         <version>1.0-alpha-4</version>
       </dependency>
-
-      <dependency>
-        <groupId>org.apache.wicket</groupId>
-        <artifactId>wicket</artifactId>
-        <version>${wicket.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.wicket</groupId>
-        <artifactId>wicket-guice</artifactId>
-        <version>${wicket.version}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -86,6 +74,5 @@
 
   <modules>
     <module>Rest-Server</module>
-    <module>Web-Ui</module>
   </modules>
 </project>

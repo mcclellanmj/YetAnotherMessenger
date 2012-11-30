@@ -1,2 +1,0 @@
-#! /bin/bash
-mvn -f WebApps/Web-Ui/pom.xml clean package embedded-glassfish:run
