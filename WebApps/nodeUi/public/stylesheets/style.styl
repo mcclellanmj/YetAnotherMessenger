@@ -1,0 +1,59 @@
+/*
+ * Import nib
+ */
+@import 'nib'
+
+/*
+ * Nib provides a CSS reset
+ */
+global-reset()
+
+/*
+ * Store the main color and
+ * background color as variables
+ */
+main-color = #fa5b4d
+background-color = #faf9f0
+
+body
+  font-family 'Georgia'
+  background-color background-color
+  color #444
+
+.container
+  display table
+  width 100%
+  .message-container
+    display table-cell
+    width 75%
+    .message-log
+      height 250px
+      border 1px solid darken(main-color, 80%)
+      border-radius 10px
+      p
+        margin-bottom 20px
+
+    .message-entry
+      border 1px solid darken(main-color, 80%)
+      border-radius 10px
+      padding 10px
+
+    #textEntry
+      width 100%
+
+  .right-info-bar
+    display table-cell
+    vertical-align top
+    height 200px
+    background-color white
+    min-width 200px
+
+p
+  line-height 1.8
+
+footer
+  width 500px
+  margin 50px auto
+  border-top 1px dotted #ccc
+  padding-top 5px
+  font-size 13px

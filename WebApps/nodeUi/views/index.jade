@@ -1,0 +1,19 @@
+extend layout
+block content
+  header
+    h1 Messaging Preview #{packageInfo.version}
+  .container
+    .message-container
+      .message-log
+      textarea#textEntry Enter text here!
+    .right-info-bar Who's Online?
+
+block scripts
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
+  script
+    $('#textEntry').keypress(function(event) {
+      if(event.keyCode === 13) {
+        event.preventDefault();
+        $(this).val('');
+      }
+    });
