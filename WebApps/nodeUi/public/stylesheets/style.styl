@@ -13,39 +13,78 @@ global-reset()
  * background color as variables
  */
 main-color = #fa5b4d
-background-color = #faf9f0
+background-color = white
+$deep-blue = darken(blue, 75%)
+$blue = darken(blue, 40%)
+$light-blue = lighten(blue, 95%)
 
-body
+
+html,body
   font-family 'Georgia'
   background-color background-color
   color #444
+  height 100%
+  width 100%
+
+#login
+  width 350px
+  margin auto
+  background-color $light-blue
+  vertical-align middle
+  #top
+    font-size 16pt
+    text-align center
+    background-color $blue
+    color white
+    border 2px solid $deep-blue
+    border-bottom 0px
+    border-radius 10px 10px 0px 0px
+    padding-top 3px
+    padding-bottom 3px
+  form
+    padding-top 15px
+    padding-bottom 15px
+    border 2px solid $deep-blue
+    border-top 0px
+    border-radius 0px 0px 10px 10px
+    padding-right 50px
+    .form-line
+      clear both
+      span
+        float left
+      .label
+        width 100px
+        text-align right
+        padding-right 5px
+    #button
+      padding-top 15px
+      clear both
+      text-align right
+
 
 .container
-  display table
   width 100%
+  height 95%
   .message-container
-    display table-cell
     width 75%
+    height 100%
+    float left
+    background-color white
+    padding-left 2px
     .message-log
-      height 250px
-      border 1px solid darken(main-color, 80%)
-      border-radius 10px
-      p
-        margin-bottom 20px
-
-    .message-entry
-      border 1px solid darken(main-color, 80%)
-      border-radius 10px
-      padding 10px
-
+      border 1px solid
+      overflow-y auto
+      height 100%
+      width 100%
     #textEntry
       width 100%
+      textarea
+        width 100%
 
   .right-info-bar
-    display table-cell
     vertical-align top
-    height 200px
-    background-color white
+    height 95%
+    background-color $light-blue
     min-width 200px
 
 p
