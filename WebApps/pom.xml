@@ -86,6 +86,5 @@
 
   <modules>
     <module>Rest-Server</module>
-    <module>Web-Ui</module>
   </modules>
 </project>
