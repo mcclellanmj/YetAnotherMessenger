@@ -1,0 +1,63 @@
+extend layout
+block content
+  .container
+    .message-container
+      .message-log
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+        div text
+      #textEntry
+        textarea Enter text here!
+    .right-info-bar Who's Online?
+
+block scripts
+  script
+    $(document).ready(function() {
+      $('#textEntry').keypress(function(event) {
+        if(event.keyCode === 13) {
+          event.preventDefault();
+          $(this).val('');
+        }
+      });
+
+      $(window).resize(function() {
+        var height = $(window).height();
+        $('.message-log').height(height-75);
+      });
+
+      var height = $(window).height();
+      $('.message-log').height(height-75);
+    });

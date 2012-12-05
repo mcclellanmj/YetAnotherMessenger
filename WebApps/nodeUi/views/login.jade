@@ -1,0 +1,17 @@
+extend layout
+block content
+	#login
+		#top Login
+		form(action='/login', method='post')
+			.form-line
+				span.label Name
+				span 
+					input(type='text', name='username')
+			.form-line
+				span.label Password
+				span
+					input(type='password', name='password')
+			#button
+				input(type='submit', value='Login')
+
+block scripts
