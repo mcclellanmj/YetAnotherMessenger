@@ -1,13 +1,19 @@
 var express = require('express');
+var app = express();
 var stylus = require('stylus');
 var nib = require('nib');
 var packageInfo = require('./package.json');
-
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 var logFactory = require('simply-log');
 logFactory.setDefaultLevel(logFactory.TRACE).addDefaultAppender(function(name, level, args) {
 	args.unshift(Date.now() + ' ' + name + ':' + level + ' ->');
 	Function.prototype.apply.call(console.log, console, args);
 });
+
+var ioInternalLogger = logFactory.getLogger('io.internal');
+io.set('logger', ioInternalLogger);
+io.set('log level', logFactory.TRACE);
 
 var log = logFactory.getLogger('root');
 log.info('Application starting');
@@ -16,7 +22,20 @@ function compile(str, path) {
   return stylus(str).set('filename', path).use(nib());
 }
 
-var app = express();
+io.sockets.on('connection', function(socket) {
+	var log = logFactory.getLogger('io');
+	log.trace('got new connection');
+
+	var id = setInterval(function() {
+		log.trace('emitting ', process.memoryUsage());
+		socket.emit('memory', process.memoryUsage());
+	}, 1000);
+
+	socket.on('disconnect', function () {
+		log.trace('disconnect recieved');
+    	clearInterval(id);
+  	});
+});
 
 // Define views directory
 app.set('views', __dirname + '/views');
@@ -69,5 +88,5 @@ app.post('/login', function(req, res) {
 });
 
 var port = 3000;
-app.listen(port);
+server.listen(port);
 log.info('Application started and listening on port', port);
