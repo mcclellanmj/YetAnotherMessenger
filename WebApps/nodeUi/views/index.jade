@@ -12,10 +12,18 @@ block scripts
   script(src="/socket.io/socket.io.js")
   script
     $(document).ready(function() {
-      $('#textEntry').keypress(function(event) {
+
+      var socket = io.connect("http://"+window.location.hostname);
+      socket.on('serverMessage', function (data) {
+        $('#message-log').append("<div>" + data + "</div>");
+        $('#message-log').scrollTop($('#message-log')[0].scrollHeight);
+      });
+
+      $('#textEntry textarea').keypress(function(event) {
         if(event.keyCode === 13) {
-          event.preventDefault();
+          socket.emit('clientMessage', $(this).val());
           $(this).val('');
+          event.preventDefault();
         }
       });
 
@@ -26,11 +34,4 @@ block scripts
 
       var height = $(window).height();
       $('#message-log').height(height-75);
-    });
-
-    var socket = io.connect('http://localhost');
-    socket.on('memory', function (data) {
-      $('#message-log').append("<div>Server: I've used " + data.heapUsed + " of my total " + data.heapTotal + " bytes of heap</div>");
-      $('#message-log').scrollTop($('#message-log')[0].scrollHeight);
-      socket.emit('my other event', { my: 'data' });
     });
