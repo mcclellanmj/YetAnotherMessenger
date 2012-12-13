@@ -5,9 +5,13 @@
   "private" : true,
   "dependencies" : {
     "express" : "3.0.1",
+    "connect-redis" : "1.4.5",
+    "socket.io" : "0.9.11",
     "jade" : "0.27.7",
     "stylus" : "0.31.0",
     "nib" : "0.9.0",
-    "simply-log" : "0.2.4"
+    "redis" : "0.8.2",
+    "simply-log" : "0.2.5",
+    "session.socket.io" : "0.1.3"
   }
 }
